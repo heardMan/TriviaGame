@@ -1,3 +1,91 @@
+body {
+    font-family: Roboto !important;
+}
+
 .bg-gray1 {
-    background-color: #cccccc;
+    background-color: #868e96;
+}
+
+.answerChoicesElement {
+    font-size: 1em;
+    box-shadow: 0em 0em 0em #ffffff;
+    -webkit-transition: background-color .7s, transform .7s, box-shadow .7s ; /* For Safari 3.1 to 6.0 */
+    transition: background-color .7s, transform .7s, box-shadow .7s ;
+    
+}
+
+.answerChoicesElement:hover {
+    background-color: #007bff;
+    transform: scale(1.05);
+    box-shadow: .4em .4em .5em #000000;
+    
+}
+
+#titleElementText {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+#titlejs{
+    background-color:#ffff00;
+    color: #ffffff;
+    font-size: 8vw;
+    width: 13vw;
+    margin: auto;
+}
+
+#timerElementText {
+    font-size: 3vw;
+    font-weight: 600;
+}
+
+
+#modalLeaveButton,{
+    width: 18vw;
+    font-size: 1em;
+}
+
+#modalRestartButton {
+    width: 18vw;
+    font-size: 1em;
+}
+
+#modalNextQuestionButton {
+    width: 18vw;
+    font-size: 1em;
+}
+
+#modalPlayButton {
+    width: 18vw;
+    font-size: 1em;
+}
+
+#gameModalTitle {
+    font-size: 4vw;
+    white-space: nowrap;
+}
+
+#jsModal {
+    width: 5vw;
+    min-width: 30px;
+}
+
+#questionElementText {
+    font-size: 4vw;
+}
+
+#titleJS {
+    width: 80%;
+
+}
+
+#titleText {
+
+    width: 80%;
+
+}
+
+#textJS {
+    width: 2em;
+    margin-bottom: 0;
 }
