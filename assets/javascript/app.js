@@ -8,7 +8,9 @@ var game = {
     state: {
         questionIDArray: [],
         questions: [],
+        numberOfPotentialAnswers: 4,
         currentQuestion: 0,
+        currentAnswer: null,
         numberOfQuestions: 5,
         questionsRemaining: 5,
         questionsRight: 0,
@@ -18,69 +20,183 @@ var game = {
     questions: [
         {
             id: 1,
-            question: "1",
-            answer: "1",
-            potentialAnswers: ["1", "2", "3", "4"],
+            question: "What does array method .concat() do?",
+            answer: "Joins two or more arrays, and returns a copy of the joined arrays",
+            potentialAnswers: [],
         },
         {
             id: 2,
-            question: "2",
-            answer: "2",
-            potentialAnswers: ["1", "2", "3", "4"],
+            question: "What does array method .copyWithin() do?",
+            answer: "Copies array elements within the array, to and from specified positions",
+            potentialAnswers: [],
         },
         {
             id: 3,
-            question: "3",
-            answer: "3",
-            potentialAnswers: ["1", "2", "3", "4"],
+            question: "What does array method .entries() do?",
+            answer: "Returns a key/value pair Array Iteration Object",
+            potentialAnswers: [],
         },
         {
             id: 4,
-            question: "4",
-            answer: "4",
-            potentialAnswers: ["1", "2", "3", "4"],
+            question: "What does array method .every() do?",
+            answer: "Checks if every element in an array pass a test",
+            potentialAnswers: [],
         },
         {
             id: 5,
-            question: "5",
-            answer: "5",
-            potentialAnswers: ["1", "2", "3", "5"],
+            question: "What does array method .fill() do?",
+            answer: "Fill the elements in an array with a static value",
+            potentialAnswers: [],
         },
         {
             id: 6,
-            question: "6",
-            answer: "6",
-            potentialAnswers: ["1", "2", "3", "6"],
+            question: "What does array method .filter() do?",
+            answer: "Creates a new array with every element in an array that pass a test",
+            potentialAnswers: [],
         },
         {
             id: 7,
-            question: "7",
-            answer: "7",
-            potentialAnswers: ["1", "2", "3", "7"],
+            question: "What does array method .find() do?",
+            answer: "Returns the value of the first element in an array that pass a test",
+            potentialAnswers: [],
         },
         {
             id: 8,
-            question: "8",
-            answer: "8",
-            potentialAnswers: ["1", "2", "3", "8"],
+            question: "What does array method .findIndex() do?",
+            answer: "Returns the index of the first element in an array that pass a test",
+            potentialAnswers: [],
         },
         {
             id: 9,
-            question: "9",
-            answer: "9",
-            potentialAnswers: ["1", "2", "3", "9"],
+            question: "What does array method .forEach() do?",
+            answer: "Calls a function for each array element",
+            potentialAnswers: [],
         },
         {
             id: 10,
-            question: "10",
-            answer: "10",
-            potentialAnswers: ["10", "2", "3", "4"],
+            question: "What does array method .from() do?",
+            answer: "Creates an array from an object",
+            potentialAnswers: [],
         },
         {
             id: 11,
-            question: "11",
-            answer: "11",
-            potentialAnswers: ["11", "2", "3", "4"],
+            question: "What does array method .includes() do?",
+            answer: "Check if an array contains the specified element",
+            potentialAnswers: [],
+        },
+        {
+            id: 12,
+            question: "What does array method .indexOf() do?",
+            answer: "	Search the array for an element and returns its position",
+            potentialAnswers: [],
+        },
+        {
+            id: 13,
+            question: "What does array method .isArray() do?",
+            answer: "Checks whether an object is an array",
+            potentialAnswers: [],
+        },
+        {
+            id: 14,
+            question: "What does array method .join() do?",
+            answer: "Joins all elements of an array into a string",
+            potentialAnswers: [],
+        },
+        {
+            id: 15,
+            question: "What does array method .keys() do?",
+            answer: "Returns a Array Iteration Object, containing the keys of the original array",
+            potentialAnswers: [],
+        },
+        {
+            id: 16,
+            question: "What does array method .lastIndexOf() do?",
+            answer: "Search the array for an element, starting at the end, and returns its position",
+            potentialAnswers: [],
+        },
+        {
+            id: 17,
+            question: "What does array method .map() do?",
+            answer: "Creates a new array with the result of calling a function for each array element",
+            potentialAnswers: [],
+        },
+        {
+            id: 18,
+            question: "What does array method .pop() do?",
+            answer: "Removes the last element of an array, and returns that element",
+            potentialAnswers: [],
+        },
+        {
+            id: 19,
+            question: "What does array method .push() do?",
+            answer: "Adds new elements to the end of an array, and returns the new length",
+            potentialAnswers: [],
+        },
+        {
+            id: 20,
+            question: "What does array method .reduce() do?",
+            answer: "Reduce the values of an array to a single value (going left-to-right)",
+            potentialAnswers: [],
+        },
+        {
+            id: 21,
+            question: "What does array method .reduceRight() do?",
+            answer: "Reduce the values of an array to a single value (going right-to-left)",
+            potentialAnswers: [],
+        },
+        {
+            id: 22,
+            question: "What does array method .reverse() do?",
+            answer: "Reverses the order of the elements in an array",
+            potentialAnswers: [],
+        },
+        {
+            id: 23,
+            question: "What does array method .shift() do?",
+            answer: "Removes the first element of an array, and returns that element",
+            potentialAnswers: [],
+        },
+        {
+            id: 24,
+            question: "What does array method .slice() do?",
+            answer: "Selects a part of an array, and returns the new array",
+            potentialAnswers: [],
+        },
+        {
+            id: 25,
+            question: "What does array method .some() do?",
+            answer: "Checks if any of the elements in an array pass a test",
+            potentialAnswers: [],
+        },
+        {
+            id: 26,
+            question: "What does array method .sort() do?",
+            answer: "Sorts the elements of an array",
+            potentialAnswers: [],
+        },
+        {
+            id: 27,
+            question: "What does array method .splice() do?",
+            answer: "Adds/Removes elements from an array",
+            potentialAnswers: [],
+        },
+        {
+            id: 28,
+            question: "What does array method .toString() do?",
+            answer: "Converts an array to a string, and returns the result",
+            potentialAnswers: [],
+        },
+        {
+            id: 29,
+            question: "What does array method .unshift() do?",
+            answer: "Adds new elements to the beginning of an array, and returns the new length",
+            potentialAnswers: [],
+        },
+        {
+            id: 30,
+            question: "What does array method .valueOf() do?",
+            answer: "Returns the primitive value of an array",
+            potentialAnswers: [],
         },
     ],
     functions: {
@@ -125,7 +241,7 @@ var game = {
                 var element = game.functions.create.newElement("p", "titleElementText", "titleElement");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: ""
+                    class: "text-center border"
                 });
                 document.getElementById("titleElementText").textContent = "Trivia Challenge!";
             },
@@ -151,7 +267,7 @@ var game = {
                 var element = game.functions.create.newElement("p", "timerElementText", "timerElement");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: ""
+                    class: "text-center border"
                 });
 
             },
@@ -176,7 +292,7 @@ var game = {
                 var element = game.functions.create.newElement("p", "questionElementText", "questionElement");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: ""
+                    class: "text-center border"
                 });
             },
             answerChoicesElementContainer: function () {
@@ -184,23 +300,23 @@ var game = {
                 var element = game.functions.create.newElement("div", "answerChoicesElementContainer", "gameContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "row m-1"
+                    class: "row m-2"
                 });
             },
-            answerChoicesElement: function () {
+            answerChoicesElement: function (potentialAnswerID) {
                 //create element
-                var element = game.functions.create.newElement("div", "answerChoicesElement", "answerChoicesElementContainer");
+                var element = game.functions.create.newElement("div", "answerChoicesElement" + potentialAnswerID, "answerChoicesElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-12"
+                    class: "col-12 col-sm-5 bg-gray1 border border-dark rounded mx-auto my-3"
                 });
             },
             answerChoiceElement: function (potentialAnswerID) {
                 //create element
-                var element = game.functions.create.newElement("div", "answerChoiceElement" + potentialAnswerID, "answerChoicesElement");
+                var element = game.functions.create.newElement("div", "answerChoiceElement" + potentialAnswerID, "answerChoicesElement" + potentialAnswerID);
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "",
+                    class: "text-center text-black p-2 ",
                     onClick: "game.functions.logic.userSelectAnswer(" + potentialAnswerID + ")",
                     //answerID: potentialAnswerID,
                 });
@@ -213,7 +329,7 @@ var game = {
                     class: "modal fade",
                     tabindex: "-1",
                     role: "dialog",
-                    
+
                     //"aria-labelledby": "modalCenterTitle",
                     //"aria-hidden": "true",
                 });
@@ -225,7 +341,7 @@ var game = {
                 game.functions.create.setAttributes(element, {
                     class: "modal-dialog modal-lg modal-dialog-centered",
                     role: "document",
-                    
+
                 });
             },
             gameModalContent: function () {
@@ -279,7 +395,7 @@ var game = {
                     "class": "",
                 });
             },
-            gameOverModalrightAnswers: function (){
+            gameOverModalrightAnswers: function () {
                 //create element
                 var element = game.functions.create.newElement("p", "gameOverModalrightAnswers", "gameModalBody");
                 //style element
@@ -287,7 +403,7 @@ var game = {
                     "class": "",
                 });
             },
-            gameOverModalWrongAnswers: function (){
+            gameOverModalWrongAnswers: function () {
                 //create element
                 var element = game.functions.create.newElement("p", "gameOverModalWrongAnswers", "gameModalBody");
                 //style element
@@ -295,7 +411,7 @@ var game = {
                     "class": "",
                 });
             },
-            gameOverModalunansweredQuestions: function (){
+            gameOverModalunansweredQuestions: function () {
                 //create element
                 var element = game.functions.create.newElement("p", "gameOverModalunansweredQuestions", "gameModalBody");
                 //style element
@@ -386,13 +502,13 @@ var game = {
             answerChoiceElementContent: function (id, content) {
                 document.getElementById("answerChoiceElement" + id).innerHTML = content;
             },
-            gameOverModalrightAnswers: function (string){
+            gameOverModalrightAnswers: function (string) {
                 document.getElementById("gameOverModalrightAnswers").innerHTML = string;
             },
-            gameOverModalWrongAnswers: function (string){
+            gameOverModalWrongAnswers: function (string) {
                 document.getElementById("gameOverModalWrongAnswers").innerHTML = string;
             },
-            gameOverModalunansweredQuestions: function (string){
+            gameOverModalunansweredQuestions: function (string) {
                 document.getElementById("gameOverModalunansweredQuestions").innerHTML = string;
             },
         },
@@ -413,16 +529,16 @@ var game = {
                 var rightAnswers = document.getElementById("gameOverModalrightAnswers");
                 var wrongAnswers = document.getElementById("gameOverModalWrongAnswers");
                 var unanswered = document.getElementById("gameOverModalunansweredQuestions");
-                if(rightAnswers){
+                if (rightAnswers) {
                     rightAnswers.innerHTML = "";
                 }
-                if(wrongAnswers){
+                if (wrongAnswers) {
                     wrongAnswers.innerHTML = "";
                 }
-                if(unanswered){
+                if (unanswered) {
                     unanswered.innerHTML = "";
                 }
-                
+
             },
         },
         timer: {
@@ -430,53 +546,57 @@ var game = {
             intervalId: null,
             runFor: function (duration) {
                 game.functions.timer.time = duration;
-                game.functions.timer.intervalId = setInterval(game.functions.timer.decrement, 1000);
+                setTimeout(function() {
+                    var countDown = game.functions.timer.decrement;
+                    game.functions.timer.intervalId = setInterval(countDown, 1000);
+                },0);
             },
             stop: function () {
                 clearInterval(game.functions.timer.intervalId);
             },
             decrement: function () {
-                game.functions.timer.time--;
                 var newTime = game.functions.timer.timeConverter(game.functions.timer.time);
-                $("#timerElementText").text("Time Remaining: " + newTime);
-                //$("#show-number").html("<h2>" + number + "</h2>");
+                console.log(newTime);
+                $("#timerElementText").html("Time Remaining: " + newTime);
                 if (game.functions.timer.time === 0) {
                     game.functions.update.gameModalTitle("Times UP");
                     game.functions.update.gameModalBodyText("You failed to answer the question!");
                     game.functions.reset.modalButtons();
                     game.functions.create.modalNextQuestionButton();
-                    $('#gameModal').modal({backdrop: 'static', keyboard: false}) 
+                    $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                     $("#gameModal").modal("show");
                     game.functions.timer.stop();
                     game.state.questionsUnanswered ++;
-                    console.log(game.state.questionsUnanswered);
+                    //console.log(game.state.questionsUnanswered);
                     game.state.questionsRemaining --;
 
                     if (game.state.questionsRemaining == 0) {
                         game.functions.logic.gameOver();
                     } else {
                         game.functions.logic.nextQuestion();
-                        
-                        //game.functions.logic.populateQuestion();
                     }
-                    //game.functions.timer.stop();
                 }
-                //return game.functions.timer.time;
+                game.functions.timer.time --;
             },
+            
             timeConverter: function (t) {
+
                 //  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
                 var minutes = Math.floor(t / 60);
+
                 var seconds = t - (minutes * 60);
+
                 if (seconds < 10) {
                     seconds = "0" + seconds;
                 }
-                if (minutes === 0) {
+                else if (minutes === 0) {
                     minutes = "00";
                 }
                 else if (minutes < 10) {
                     minutes = "0" + minutes;
                 }
                 return minutes + ":" + seconds;
+
             }
         },
         logic: {
@@ -491,13 +611,14 @@ var game = {
                 game.functions.create.timerElementContainer();
                 game.functions.create.timerElement();
                 game.functions.create.timerElementText();
+                game.functions.update.timerElementText(" ");
                 //set up question
                 game.functions.create.questionElementContainer();
                 game.functions.create.questionElement();
                 game.functions.create.questionElementText();
                 //set up answer choices
                 game.functions.create.answerChoicesElementContainer();
-                game.functions.create.answerChoicesElement();
+                // game.functions.create.answerChoicesElement();
                 //set up game modal
                 game.functions.create.gameModal();
                 game.functions.create.gameModalDialogue();
@@ -515,12 +636,13 @@ var game = {
                 game.functions.update.gameModalBodyText("");
                 game.functions.create.modalPlayButton();
                 game.functions.create.modalLeaveButton();
-                $('#gameModal').modal({backdrop: 'static', keyboard: false}) 
+                $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                 $("#gameModal").modal("show");
             },
             startGame: function () {
                 game.functions.reset.game();
                 game.functions.logic.selectGameQuestions();
+                
                 game.functions.logic.populateQuestion();
             },
             selectGameQuestions: function () {
@@ -532,20 +654,54 @@ var game = {
                     } else {
                         game.state.questionIDArray.push(game.questions[randomQuestion].id)
                         game.state.questions.push(game.questions[randomQuestion]);
-                        i++
+                        i ++;
                     }
+
                 }
+                game.functions.logic.assignPotentialAnswers();
+
+                console.log(gameQuestions);
+
+            },
+            assignPotentialAnswers: function (){
+                //if (potentialAnswerID.includes(game.questions[randomQuestion].id)){}
+                for(var i = 0; i < game.state.questions.length; i++){
+                    var potentialAnswerID = [];
+                    potentialAnswerID.push(game.state.questions[i].id);
+                    var potAnswer = game.state.questions[i].potentialAnswers;
+                    var randomAnswerSlot = Math.floor(Math.random() * game.state.numberOfPotentialAnswers);
+                    for(var j = 0; j < 4; ){
+                        var randomQuestion = Math.floor(Math.random() * game.questions.length);
+                        if(potentialAnswerID.includes(game.questions[randomQuestion].id)){
+                            // do nothing
+                        } else {
+                            potentialAnswerID.push(game.questions[randomQuestion].id);
+                            potAnswer.push(game.questions[randomQuestion].answer);
+                            j ++;
+                        }
+                        
+                        
+                    }
+                    potAnswer.splice(randomAnswerSlot, 1, game.state.questions[i].answer);
+
+                    console.log(potentialAnswerID);
+                    //potAnswer[randomAnswerSlot].push(game.state.questions[i].answer);
+
+                }
+                
             },
             populateQuestion: function () {
                 //console.log(game.state.questions[game.state.currentQuestion].question);
                 game.functions.update.questionElementText(game.state.questions[game.state.currentQuestion].question);
-                
                 game.functions.logic.populatePotentialAnswers();
-                game.functions.update.timerElementText(game.functions.timer.runFor(5));
+                $("#timerElementText").html("Time Remaining: 0:00");
+                game.functions.timer.runFor(5);
+                //game.functions.update.timerElementText();
             },
             populatePotentialAnswers: function () {
                 for (var i = 0; i < game.state.questions[game.state.currentQuestion].potentialAnswers.length; i++) {
                     //console.log(game.state.questions[game.state.currentQuestion].potentialAnswers[i]);
+                    game.functions.create.answerChoicesElement(i);
                     game.functions.create.answerChoiceElement(i);
                     game.functions.update.answerChoiceElementContent(i, game.state.questions[game.state.currentQuestion].potentialAnswers[i]);
                 }
@@ -569,7 +725,7 @@ var game = {
                 game.functions.update.gameModalBodyText("You chose the correct answer");
                 game.functions.reset.modalButtons();
                 game.functions.create.modalNextQuestionButton();
-                $('#gameModal').modal({backdrop: 'static', keyboard: false}) 
+                $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                 $("#gameModal").modal("show");
                 game.functions.timer.stop();
                 game.state.questionsRight++;
@@ -583,11 +739,14 @@ var game = {
             },
             answerIncorrect: function () {
                 console.log("wrong");
+                var currentQuestion = game.state.currentQuestion;
+                var correctAnswer = game.state.questions[game.state.currentQuestion].answer;
+                console.log(correctAnswer);
                 game.functions.update.gameModalTitle("Incorrect");
-                game.functions.update.gameModalBodyText("You chose the incorrect answer");
+                game.functions.update.gameModalBodyText("<p>You chose the incorrect answer</p><p>" + correctAnswer + "</p>");
                 game.functions.reset.modalButtons();
                 game.functions.create.modalNextQuestionButton();
-                $('#gameModal').modal({backdrop: 'static', keyboard: false}) 
+                $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                 $("#gameModal").modal("show");
                 game.functions.timer.stop();
                 game.state.questionsWrong++;
@@ -597,8 +756,6 @@ var game = {
                     game.functions.logic.gameOver();
                 } else {
                     game.functions.logic.nextQuestion();
-                    //game.functions.timer.stop();
-                    //game.functions.logic.populateQuestion();
                 }
 
             },
@@ -614,7 +771,7 @@ var game = {
                 game.functions.reset.modalButtons();
                 game.functions.create.modalRestartButton();
                 game.functions.create.modalLeaveButton();
-                $('#gameModal').modal({backdrop: 'static', keyboard: false}) 
+                $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                 $("#gameModal").modal("show");
             },
         },
