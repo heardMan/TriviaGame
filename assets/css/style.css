@@ -97,25 +97,26 @@ body {
 #totalBar {
     height: 25px;
     width: 100%;
-    margin: 10px 0px -20px 10px;
-
-    
+    margin: 10px 0px -30px 5px;
 }
 
 #correctBar {
     height: 25px;
     margin: 0px 0px 10px 0px;
+    min-width: 10 px;
     font-weight: 700px;
 }
 
 #incorrectBar {
     height: 25px;
     margin: 0px 0px 10px 0px;
+    min-width: 10 px;
     font-weight: 700px;
 }
 
 #unansweredBar {
     height: 25px;
     margin: 0px 0px 10px 0px;
+    min-width: 10 px;
     font-weight: 700px;
 }

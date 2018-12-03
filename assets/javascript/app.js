@@ -464,10 +464,18 @@ var game = {
                 });
                 var correctBar = game.functions.create.newElement("div", "correctBar", "rightAnswerStats");
                 var dataP =     100 * data/5;
-                game.functions.create.setAttributes(correctBar, {
-                    "class": "bg-success text-white",
-                    "style": "width: "+dataP+"%;"
-                });
+                if (dataP <= 10){
+                    game.functions.create.setAttributes(correctBar, {
+                        "class": "bg-success text-white",
+                        "style": "width: 10%;"
+                    });
+                } else {
+                    game.functions.create.setAttributes(correctBar, {
+                        "class": "bg-success text-white",
+                        "style": "width: "+dataP+"%;"
+                    });
+                }
+                
                 var correctPercent = game.functions.create.newElement("span", "correctPercent", "correctBar");
                 game.functions.create.setAttributes(correctPercent, {
                     "class": "float-right pr-2",
@@ -506,10 +514,18 @@ var game = {
                 });
                 var incorrectBar = game.functions.create.newElement("div", "incorrectBar", "wrongAnswerStats");
                 var dataP =     100 * data/5;
-                game.functions.create.setAttributes(incorrectBar, {
-                    "class": "bg-danger text-white",
-                    "style": "width: "+dataP+"%;"
-                });
+                if (dataP <= 10){
+                    game.functions.create.setAttributes(incorrectBar, {
+                        "class": "bg-danger text-white",
+                        "style": "width: 10%;"
+                    });
+                } else {
+                    game.functions.create.setAttributes(incorrectBar, {
+                        "class": "bg-danger text-white",
+                        "style": "width: "+dataP+"%;"
+                    });
+                }
+                
                 var incorrectPercent = game.functions.create.newElement("span", "incorrectPercent", "incorrectBar");
                 game.functions.create.setAttributes(incorrectPercent, {
                     "class": "float-right pr-2",
@@ -546,10 +562,18 @@ var game = {
                 });
                 var unansweredBar = game.functions.create.newElement("div", "unansweredBar", "unansweredStats");
                 var dataP =     100 * data/5;
-                game.functions.create.setAttributes(unansweredBar, {
-                    "class": "bg-warning text-white",
-                    "style": "width: "+dataP+"%;"
-                });
+                if (dataP <= 10){
+                    game.functions.create.setAttributes(unansweredBar, {
+                        "class": "bg-warning text-white",
+                        "style": "width: 10%;"
+                    });
+                } else {
+                    game.functions.create.setAttributes(unansweredBar, {
+                        "class": "bg-warning text-white",
+                        "style": "width: "+dataP+"%;"
+                    });
+                }
+                
                 var unansweredPercent = game.functions.create.newElement("span", "unansweredPercent", "unansweredBar");
                 game.functions.create.setAttributes(unansweredPercent, {
                     "class": "float-right pr-2",
