@@ -1,5 +1,6 @@
 body {
     font-family: Roboto !important;
+    margin: 0px;
 }
 
 .bg-gray1 {
@@ -25,38 +26,40 @@ body {
     font-size: 2em;
     font-weight: 700;
 }
-
+#timeRemaining {
+    white-space: nowrap;
+}
 #titlejs{
     background-color:#ffff00;
     color: #ffffff;
-    font-size: 8vw;
-    width: 13vw;
+    width: 2em;
     margin: auto;
 }
 
 #timerElementText {
-    font-size: 3vw;
+    font-size: 4vw;
     font-weight: 600;
+    min-height: 16px;
 }
 
 
 #modalLeaveButton,{
-    width: 18vw;
+    width: 15rem;
     font-size: 1em;
 }
 
 #modalRestartButton {
-    width: 18vw;
+    width: 15rem;
     font-size: 1em;
 }
 
 #modalNextQuestionButton {
-    width: 18vw;
+    width: 15rem;
     font-size: 1em;
 }
 
 #modalPlayButton {
-    width: 18vw;
+    width: 15rem;
     font-size: 1em;
 }
 
@@ -75,17 +78,17 @@ body {
 }
 
 #titleJS {
-    width: 80%;
+    width: 2em;
 
 }
 
 #titleText {
-
-    width: 80%;
+    
 
 }
 
 #textJS {
     width: 2em;
     margin-bottom: 0;
+    padding-bottom: 0px;
 }

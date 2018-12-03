@@ -255,7 +255,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "titleElementContainer", "gameContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "row m-1"
+                    class: "row"
                 });
             },
             titleElement: function () {
@@ -263,7 +263,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "titleElement", "titleElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-4 bg-secondary mx-auto"
+                    class: "col-12 bg-secondary mx-auto"
                 });
             },
             titleElementText: function () {
@@ -273,14 +273,15 @@ var game = {
                 game.functions.create.setAttributes(element, {
                     class: "text-center text-white"
                 });
-                document.getElementById("titleElementText").innerHTML = "<div class='mx-auto' id='titleText'>Know Your</div> <img class='img' id='titleJS' src='./assets/images/jsLogo.svg'></img>";
+                document.getElementById("titleElementText").innerHTML = "<div class='mx-auto pt-2' ><h3 id='titleText'>Know Your <img class='align-baseline img'id='titleJS' src='./assets/images/jsLogo.svg'></img></h3>";
+                
             },
             timerElementContainer: function () {
                 //create element
                 var element = game.functions.create.newElement("div", "timerElementContainer", "gameContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "row m-1"
+                    class: "row"
                 });
                 //game.functions.timer.runFor(15);
             },
@@ -289,7 +290,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "timerElement", "timerElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-6 m-auto p-auto"
+                    class: "col-12 col-sm-11 mx-auto p-auto"
                 });
             },
             timerElementText: function () {
@@ -306,7 +307,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "questionElementContainer", "gameContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "row m-1"
+                    class: "row"
                 });
             },
             questionElement: function () {
@@ -314,7 +315,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "questionElement", "questionElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-10 mx-auto"
+                    class: "col-12 col-sm-10 mx-auto"
                 });
             },
             questionElementText: function () {
@@ -330,7 +331,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "answerChoicesElementContainer", "gameContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "row m-2"
+                    class: "row"
                 });
             },
             answerChoicesElement: function (potentialAnswerID) {
@@ -338,7 +339,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "answerChoicesElement" + potentialAnswerID, "answerChoicesElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-10 col-sm-5 bg-gray1 mx-auto my-3 answerChoicesElement",
+                    class: "col-12 col-sm-5 bg-gray1 mx-auto my-2 answerChoicesElement",
                     onClick: "game.functions.logic.userSelectAnswer(" + potentialAnswerID + ")",
                 });
             },
@@ -393,10 +394,10 @@ var game = {
             },
             gameModalTitle: function () {
                 //create element
-                var element = game.functions.create.newElement("span", "gameModalTitle", "gameModalHeader");
+                var element = game.functions.create.newElement("p", "gameModalTitle", "gameModalHeader");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "modal-title ml-auto"
+                    class: "modal-title ml-auto align-baseline"
                 });
             },
             gameModalCloseButton: function () {
@@ -475,7 +476,7 @@ var game = {
                     "type": "button",
                     "class": "btn btn-lg btn-secondary",
                     "data-dismiss": "modal",
-                    //"onClick": "#",
+                    
                 });
                 document.getElementById("modalLeaveButton").innerHTML = "Leave";
             },
@@ -583,7 +584,7 @@ var game = {
                     var countDown = game.functions.timer.decrement;
                     game.functions.timer.intervalId = setInterval(countDown, 1000);
                 },0);
-                $("#timerElement").attr("class", "bg-primary col-4 mx-auto");
+                $("#timerElement").attr("class", "bg-primary col-12 col-sm-11 mx-auto");
             },
             stop: function () {
                 clearInterval(game.functions.timer.intervalId);
@@ -591,17 +592,17 @@ var game = {
             decrement: function () {
                 var newTime = game.functions.timer.timeConverter(game.functions.timer.time);
                 console.log(newTime);
-                $("#timerElementText").html("Time Remaining: " + newTime);
+                $("#timerElementText").html("<h5 id='timeRemaining'>Time Remaining : </h5><h5>" + newTime + "</h5>");
                 var timeRemainingPercent = game.functions.timer.time / game.functions.timer.duration;
                 console.log(timeRemainingPercent);
                 if (timeRemainingPercent < 0.25){
-                    $("#timerElement").attr("class", "bg-warning col-4 mx-auto");
+                    $("#timerElement").attr("class", "bg-warning col-12 col-sm-11 mx-auto");
                 }
                 if (timeRemainingPercent <= 0.10){
-                    $("#timerElement").attr("class", "bg-danger col-4 mx-auto");
+                    $("#timerElement").attr("class", "bg-danger col-12 col-sm-11 mx-auto");
                 }
                 if (game.functions.timer.time === 0) {
-                    game.functions.update.gameModalTitle("Know Your <img class='img pb-3'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>TIMES UP!!!</span>");
+                    game.functions.update.gameModalTitle("<h5>Know Your <img class='align-baseline img'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>TIMES UP!!!</span></h5>");
                     //<i id='modalIcon' class='fab fa-js'></i>
                     game.functions.update.gameModalBodyText("<div class='col'>You failed to answer the question!</div>");
                     game.functions.reset.modalButtons();
@@ -675,10 +676,10 @@ var game = {
                 game.functions.create.closeIcon("gameModalCloseButtonIcon", "gameModalCloseButton");
             },
             startMenu: function () {
-                game.functions.update.gameModalTitle("Know Your <img class='img pb-3'id='jsModal' src='./assets/images/jsLogo.svg'></img> : Welcome");
-                game.functions.update.gameModalBodyText("<div class='col'>Know Your <img class='img pb-3'id='textJS' src='./assets/images/jsLogo.svg'></img> is a game dedicated to helping developers learn about Javascript's built methods and libraries! Now choose a choose a library and get learnin'!!!</div>");
+                game.functions.update.gameModalTitle("<h5>Know Your <img class='align-baseline img 'id='jsModal' src='./assets/images/jsLogo.svg'></img> : Welcome</h5>");
+                game.functions.update.gameModalBodyText("<div class='col'>Know Your <img class='img align-baseline'id='textJS' src='./assets/images/jsLogo.svg'></img> is a game dedicated to helping developers learn about Javascript's built-in methods and libraries! Click Play to see how much you know and get learnin'!!!</div>");
                 game.functions.create.modalPlayButton();
-                game.functions.create.modalLeaveButton();
+                //game.functions.create.modalLeaveButton();
                 $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                 $("#gameModal").modal("show");
             },
@@ -737,9 +738,9 @@ var game = {
                 //console.log(game.state.questions[game.state.currentQuestion].question);
                 
                 game.functions.update.questionElementText(game.state.questions[game.state.currentQuestion].question);
-                $("#questionElementText").attr("class", "col-12 mx-auto border-bottom border-primary mt-5 text-center");
+                $("#questionElementText").attr("class", "col-12 col-sm-5 mx-auto border-bottom border-primary mt-5 text-center");
                 game.functions.logic.populatePotentialAnswers();
-                $("#timerElementText").html("Time Remaining: 0:00");
+                $("#timerElementText").html("<h5 id='timeRemaining'>Time Remaining : </h5><h5>0:00</h5>");
                 game.functions.timer.runFor(5);
                 
                 //game.functions.update.timerElementText();
@@ -772,7 +773,7 @@ var game = {
             answerCorrect: function () {
                 console.log("right");
 
-                game.functions.update.gameModalTitle("Know Your <img class='img pb-3'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-success'>Correct</span>");
+                game.functions.update.gameModalTitle("<h5>Know Your <img class='align-baseline img'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-success'>Correct</span></h5>");
                 game.functions.update.gameModalBodyText("<div class='col'>You chose the correct answer</div>");
                 game.functions.reset.modalButtons();
                 game.functions.create.modalNextQuestionButton();
@@ -794,7 +795,7 @@ var game = {
                 var correctAnswer = game.state.questions[game.state.currentQuestion].answer;
                 var w3 = game.state.questions[game.state.currentQuestion].w3Link;
                 console.log(correctAnswer);
-                game.functions.update.gameModalTitle("Know Your <img class='img pb-3'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>Incorrect</span>");
+                game.functions.update.gameModalTitle("<h5>Know Your <img class=' align-baseline img'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>Incorrect</span></h5>");
                 //var answerStatus = "<div class='col-12'>You chose the incorrect answer</div>";
                 var bodyTextTitle = "<div class='col-12 my-3'>The Correct Answer Was:</div>";
                 var bodyText = "<div class='col-12 mb-5'>"+ correctAnswer + "</div>";
@@ -816,7 +817,7 @@ var game = {
 
             },
             gameOver: function () {
-                game.functions.update.gameModalTitle("Know Your <img class='img pb-3'id='jsModal' src='./assets/images/jsLogo.svg'></img>: Game Over");
+                game.functions.update.gameModalTitle("<h5>Know Your <img class='img align-baseline'id='jsModal' src='./assets/images/jsLogo.svg'></img>: Game Over</h5>");
                 game.functions.update.gameModalBodyText("<div class='col'>How about another game?</div>");
                 game.functions.create.gameOverModalrightAnswers();
                 game.functions.update.gameOverModalrightAnswers("<span class='border-bottom border-success bg-success'>Right Answers: " + game.state.questionsRight + "</span>");
@@ -826,7 +827,7 @@ var game = {
                 game.functions.update.gameOverModalunansweredQuestions("<span class='border-bottom border-warning bg-warning'>Unanswered: " + game.state.questionsUnanswered + "</span>");
                 game.functions.reset.modalButtons();
                 game.functions.create.modalRestartButton();
-                game.functions.create.modalLeaveButton();
+                //game.functions.create.modalLeaveButton();
                 $('#gameModal').modal({ backdrop: 'static', keyboard: false })
                 $("#gameModal").modal("show");
             },
