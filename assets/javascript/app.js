@@ -247,7 +247,7 @@ var game = {
                 var gameContainer = document.getElementById("game");
                 game.functions.create.setAttributes(gameContainer, {
                     id: "gameContainer",
-                    class: "container-fluid px-0"
+                    class: "container-fluid px-0 bg-light"
                 });
             },
             titleElementContainer: function () {
@@ -290,7 +290,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "timerElement", "timerElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-12 col-sm-11 mx-auto p-auto"
+                    class: "col-12 col-sm-6 mt-sm-2 mx-auto py-2"
                 });
             },
             timerElementText: function () {
@@ -315,12 +315,12 @@ var game = {
                 var element = game.functions.create.newElement("div", "questionElement", "questionElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-12 col-sm-10 mx-auto"
+                    class: "col-12 col-sm-11 mt-sm-2 mx-auto"
                 });
             },
             questionElementText: function () {
                 //create element
-                var element = game.functions.create.newElement("p", "questionElementText", "questionElement");
+                var element = game.functions.create.newElement("h5", "questionElementText", "questionElement");
                 //style element
                 game.functions.create.setAttributes(element, {
                     class: "text-center"
@@ -331,7 +331,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "answerChoicesElementContainer", "gameContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "row"
+                    class: "row mt-5 px-sm-5"
                 });
             },
             answerChoicesElement: function (potentialAnswerID) {
@@ -339,7 +339,7 @@ var game = {
                 var element = game.functions.create.newElement("div", "answerChoicesElement" + potentialAnswerID, "answerChoicesElementContainer");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "col-12 col-sm-5 bg-gray1 mx-auto my-2 answerChoicesElement",
+                    class: "col-12 col-sm-5 bg-gray1  mx-sm-auto mt-1 answerChoicesElement",
                     onClick: "game.functions.logic.userSelectAnswer(" + potentialAnswerID + ")",
                 });
             },
@@ -584,7 +584,7 @@ var game = {
                     var countDown = game.functions.timer.decrement;
                     game.functions.timer.intervalId = setInterval(countDown, 1000);
                 },0);
-                $("#timerElement").attr("class", "bg-primary col-12 col-sm-11 mx-auto");
+                $("#timerElement").attr("class", "bg-success col-12 col-sm-11 mt-sm-2 py-2 mx-auto mt-1 rounded-top");
             },
             stop: function () {
                 clearInterval(game.functions.timer.intervalId);
@@ -592,14 +592,15 @@ var game = {
             decrement: function () {
                 var newTime = game.functions.timer.timeConverter(game.functions.timer.time);
                 console.log(newTime);
-                $("#timerElementText").html("<h5 id='timeRemaining'>Time Remaining : </h5><h5>" + newTime + "</h5>");
+                $("#timerElementText").html("<h5 id='timeRemaining'><strong>Time : " + newTime + "</strong></h5>");
                 var timeRemainingPercent = game.functions.timer.time / game.functions.timer.duration;
                 console.log(timeRemainingPercent);
-                if (timeRemainingPercent < 0.25){
-                    $("#timerElement").attr("class", "bg-warning col-12 col-sm-11 mx-auto");
+                
+                if (timeRemainingPercent <= 0.50){
+                    $("#timerElement").attr("class", "bg-warning col-12 col-sm-11 mt-sm-2 py-2 mx-auto mt-1 rounded-top");
                 }
                 if (timeRemainingPercent <= 0.10){
-                    $("#timerElement").attr("class", "bg-danger col-12 col-sm-11 mx-auto");
+                    $("#timerElement").attr("class", "bg-danger col-12 col-sm-11 mt-sm-2 py-2 mx-auto mt-1 rounded-top");
                 }
                 if (game.functions.timer.time === 0) {
                     game.functions.update.gameModalTitle("<h5>Know Your <img class='align-baseline img'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>TIMES UP!!!</span></h5>");
@@ -738,10 +739,11 @@ var game = {
                 //console.log(game.state.questions[game.state.currentQuestion].question);
                 
                 game.functions.update.questionElementText(game.state.questions[game.state.currentQuestion].question);
-                $("#questionElementText").attr("class", "col-12 col-sm-5 mx-auto border-bottom border-primary mt-5 text-center");
+                $("#questionElement").attr("class", "col-12 col-sm-11 mx-auto py-4 bg-primary  rounded-bottom");
+                $("#questionElementText").attr("class", "col-12 col-sm-12 mt-4 w-85 mx-auto text-white text-center");
                 game.functions.logic.populatePotentialAnswers();
-                $("#timerElementText").html("<h5 id='timeRemaining'>Time Remaining : </h5><h5>0:00</h5>");
-                game.functions.timer.runFor(5);
+                $("#timerElementText").html("<h5 id='timeRemaining'><strong>Time : 00:00<strong></h5>");
+                game.functions.timer.runFor(70);
                 
                 //game.functions.update.timerElementText();
             },

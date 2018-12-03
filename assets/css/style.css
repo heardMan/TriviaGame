@@ -17,8 +17,8 @@ body {
 
 .answerChoicesElement:hover {
     background-color: #007bff;
-    transform: scale(1.05);
-    box-shadow: .4em .4em .5em #000000;
+    transform: scale(1.01);
+    box-shadow: .2em .2em .25em #a6a6a6;
     
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 #questionElementText {
-    font-size: 4vw;
+    font-weight: 700;
 }
 
 #titleJS {
