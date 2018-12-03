@@ -103,20 +103,19 @@ body {
 #correctBar {
     height: 25px;
     margin: 0px 0px 10px 0px;
-    min-width: 10 px;
     font-weight: 700px;
 }
 
 #incorrectBar {
     height: 25px;
     margin: 0px 0px 10px 0px;
-    min-width: 10 px;
     font-weight: 700px;
 }
 
 #unansweredBar {
     height: 25px;
     margin: 0px 0px 10px 0px;
-    min-width: 10 px;
     font-weight: 700px;
+    
+    
 }

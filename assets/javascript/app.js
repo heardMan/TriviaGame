@@ -473,8 +473,10 @@ var game = {
                 } else {
                     game.functions.create.setAttributes(correctBar, {
                         "class": "bg-success text-white",
-                        "style": "width: "+dataP+"%;"
+                        "style": "width: 10%;"
                     });
+                    $("#correctBar").animate({width: dataP+"%",}, "slow");
+
                 }
                 
                 var correctPercent = game.functions.create.newElement("span", "correctPercent", "correctBar");
@@ -523,15 +525,20 @@ var game = {
                 } else {
                     game.functions.create.setAttributes(incorrectBar, {
                         "class": "bg-danger text-white",
-                        "style": "width: "+dataP+"%;"
+                        "style": "width: 10%;"
                     });
+                    $("#incorrectBar").animate({width: dataP+"%",}, "slow");
                 }
+
+                
+
                 
                 var incorrectPercent = game.functions.create.newElement("span", "incorrectPercent", "incorrectBar");
                 game.functions.create.setAttributes(incorrectPercent, {
                     "class": "float-right pr-2",
                     
                 });
+                
                 document.getElementById("incorrectPercent").innerHTML = dataP+"%";
             },
             gameOverModalunansweredQuestions: function (data) {
@@ -571,10 +578,13 @@ var game = {
                 } else {
                     game.functions.create.setAttributes(unansweredBar, {
                         "class": "bg-warning text-white",
-                        "style": "width: "+dataP+"%;"
+                        "style": "width: 10%;"
                     });
+                    $("#unansweredBar").animate({width: dataP+"%",}, "slow");
                 }
                 
+                
+
                 var unansweredPercent = game.functions.create.newElement("span", "unansweredPercent", "unansweredBar");
                 game.functions.create.setAttributes(unansweredPercent, {
                     "class": "float-right pr-2",
@@ -878,7 +888,7 @@ var game = {
                 $("#questionElementText").attr("class", "col-12 col-sm-12 mt-4 w-85 mx-auto text-white text-center");
                 game.functions.logic.populatePotentialAnswers();
                 $("#timerElementText").html("<h5 id='timeRemaining'><strong>Time : 00:00<strong></h5>");
-                game.functions.timer.runFor(5);
+                game.functions.timer.runFor(70);
                 
                 //game.functions.update.timerElementText();
             },
