@@ -22,6 +22,7 @@ body {
     
 }
 
+
 #titleElementText {
     font-size: 2em;
     font-weight: 700;
@@ -91,4 +92,30 @@ body {
     width: 2em;
     margin-bottom: 0;
     padding-bottom: 0px;
+}
+
+#totalBar {
+    height: 25px;
+    width: 100%;
+    margin: 10px 0px -20px 10px;
+
+    
+}
+
+#correctBar {
+    height: 25px;
+    margin: 0px 0px 10px 0px;
+    font-weight: 700px;
+}
+
+#incorrectBar {
+    height: 25px;
+    margin: 0px 0px 10px 0px;
+    font-weight: 700px;
+}
+
+#unansweredBar {
+    height: 25px;
+    margin: 0px 0px 10px 0px;
+    font-weight: 700px;
 }

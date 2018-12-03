@@ -427,29 +427,135 @@ var game = {
                     "class": "row text-center",
                 });
             },
-            gameOverModalrightAnswers: function () {
+            gameModalBodyGameOver: function () {
                 //create element
-                var element = game.functions.create.newElement("p", "gameOverModalrightAnswers", "gameModalBody");
+                var element = game.functions.create.newElement("div", "gameModalBodyGameOver", "gameModalBody");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    "class": "",
+                    "class": "row text-center",
                 });
             },
-            gameOverModalWrongAnswers: function () {
+            gameOverModalrightAnswers: function (data) {
                 //create element
-                var element = game.functions.create.newElement("p", "gameOverModalWrongAnswers", "gameModalBody");
+                var element = game.functions.create.newElement("div", "gameOverModalrightAnswers", "gameModalBody");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    "class": "",
+                    "class": "col-12",
                 });
+
+                var rightAnswerStatsContainer = game.functions.create.newElement("div", "rightAnswerStatsContainer", "gameOverModalrightAnswers");
+                game.functions.create.setAttributes(rightAnswerStatsContainer, {
+                    "class": "row",
+                });
+                var rightAnswerStatsText = game.functions.create.newElement("div", "rightAnswerStatsText", "rightAnswerStatsContainer");
+                game.functions.create.setAttributes(rightAnswerStatsText, {
+                    "class": "col-12",
+                });
+                document.getElementById("rightAnswerStatsText").innerHTML = "Correct";
+
+                var rightAnswerStats = game.functions.create.newElement("div", "rightAnswerStats", "rightAnswerStatsContainer");
+                game.functions.create.setAttributes(rightAnswerStats, {
+                    "class": "col-12",
+                    
+                });
+                var totalBar = game.functions.create.newElement("div", "totalBar", "rightAnswerStats");
+                game.functions.create.setAttributes(totalBar, {
+                    "class": "bg-secondary",
+                });
+                var correctBar = game.functions.create.newElement("div", "correctBar", "rightAnswerStats");
+                var dataP =     100 * data/5;
+                game.functions.create.setAttributes(correctBar, {
+                    "class": "bg-success text-white",
+                    "style": "width: "+dataP+"%;"
+                });
+                var correctPercent = game.functions.create.newElement("span", "correctPercent", "correctBar");
+                game.functions.create.setAttributes(correctPercent, {
+                    "class": "float-right pr-2",
+                    
+                });
+                document.getElementById("correctPercent").innerHTML = dataP+"%";
+
+
             },
-            gameOverModalunansweredQuestions: function () {
+            gameOverModalWrongAnswers: function (data) {
                 //create element
-                var element = game.functions.create.newElement("p", "gameOverModalunansweredQuestions", "gameModalBody");
+                var element = game.functions.create.newElement("div", "gameOverModalWrongAnswers", "gameModalBody");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    "class": "",
+                    "class": "col-12",
                 });
+
+                var wrongAnswerStatsContainer = game.functions.create.newElement("div", "wrongAnswerStatsContainer", "gameOverModalWrongAnswers");
+                game.functions.create.setAttributes(wrongAnswerStatsContainer, {
+                    "class": "row",
+                });
+                var wrongAnswerStatsText = game.functions.create.newElement("div", "wrongAnswerStatsText", "wrongAnswerStatsContainer");
+                game.functions.create.setAttributes(wrongAnswerStatsText, {
+                    "class": "col-12",
+                });
+                document.getElementById("wrongAnswerStatsText").innerHTML = "Incorrect";
+
+                var wrongAnswerStats = game.functions.create.newElement("div", "wrongAnswerStats", "wrongAnswerStatsContainer");
+                game.functions.create.setAttributes(wrongAnswerStats, {
+                    "class": "col-12",
+                    
+                });
+                var totalBar = game.functions.create.newElement("div", "totalBar", "wrongAnswerStats");
+                game.functions.create.setAttributes(totalBar, {
+                    "class": "bg-secondary",
+                });
+                var incorrectBar = game.functions.create.newElement("div", "incorrectBar", "wrongAnswerStats");
+                var dataP =     100 * data/5;
+                game.functions.create.setAttributes(incorrectBar, {
+                    "class": "bg-danger text-white",
+                    "style": "width: "+dataP+"%;"
+                });
+                var incorrectPercent = game.functions.create.newElement("span", "incorrectPercent", "incorrectBar");
+                game.functions.create.setAttributes(incorrectPercent, {
+                    "class": "float-right pr-2",
+                    
+                });
+                document.getElementById("incorrectPercent").innerHTML = dataP+"%";
+            },
+            gameOverModalunansweredQuestions: function (data) {
+                //create element
+                var element = game.functions.create.newElement("div", "gameOverModalunansweredQuestions", "gameModalBody");
+                //style element
+                game.functions.create.setAttributes(element, {
+                    "class": "col-12",
+                });
+
+                var unsweredStatsContainer = game.functions.create.newElement("div", "unsweredStatsContainer", "gameOverModalunansweredQuestions");
+                game.functions.create.setAttributes(unsweredStatsContainer, {
+                    "class": "row",
+                });
+                var unansweredStatsText = game.functions.create.newElement("div", "unansweredStatsText", "unsweredStatsContainer");
+                game.functions.create.setAttributes(unansweredStatsText, {
+                    "class": "col-12",
+                });
+                document.getElementById("unansweredStatsText").innerHTML = "Unanswered";
+
+                var unansweredStats = game.functions.create.newElement("div", "unansweredStats", "unsweredStatsContainer");
+                game.functions.create.setAttributes(unansweredStats, {
+                    "class": "col-12",
+                    
+                });
+                var totalBar = game.functions.create.newElement("div", "totalBar", "unansweredStats");
+                game.functions.create.setAttributes(totalBar, {
+                    "class": "bg-secondary",
+                });
+                var unansweredBar = game.functions.create.newElement("div", "unansweredBar", "unansweredStats");
+                var dataP =     100 * data/5;
+                game.functions.create.setAttributes(unansweredBar, {
+                    "class": "bg-warning text-white",
+                    "style": "width: "+dataP+"%;"
+                });
+                var unansweredPercent = game.functions.create.newElement("span", "unansweredPercent", "unansweredBar");
+                game.functions.create.setAttributes(unansweredPercent, {
+                    "class": "float-right pr-2",
+                    
+                });
+                document.getElementById("unansweredPercent").innerHTML = dataP+"%";
             },
             gameModalFooter: function () {
                 //create element
@@ -743,7 +849,7 @@ var game = {
                 $("#questionElementText").attr("class", "col-12 col-sm-12 mt-4 w-85 mx-auto text-white text-center");
                 game.functions.logic.populatePotentialAnswers();
                 $("#timerElementText").html("<h5 id='timeRemaining'><strong>Time : 00:00<strong></h5>");
-                game.functions.timer.runFor(70);
+                game.functions.timer.runFor(5);
                 
                 //game.functions.update.timerElementText();
             },
@@ -819,14 +925,18 @@ var game = {
 
             },
             gameOver: function () {
+                var rightAnswers = game.state.questionsRight;
+                var wrongAnswers = game.state.questionsWrong;
+                var unanswered = game.state.questionsUnanswered;
                 game.functions.update.gameModalTitle("<h5>Know Your <img class='img align-baseline'id='jsModal' src='./assets/images/jsLogo.svg'></img>: Game Over</h5>");
                 game.functions.update.gameModalBodyText("<div class='col'>How about another game?</div>");
-                game.functions.create.gameOverModalrightAnswers();
-                game.functions.update.gameOverModalrightAnswers("<span class='border-bottom border-success bg-success'>Right Answers: " + game.state.questionsRight + "</span>");
-                game.functions.create.gameOverModalWrongAnswers();
-                game.functions.update.gameOverModalWrongAnswers("<span class='border-bottom border-danger bg-danger'>Wrong Answers: " + game.state.questionsWrong + "</span>");
-                game.functions.create.gameOverModalunansweredQuestions();
-                game.functions.update.gameOverModalunansweredQuestions("<span class='border-bottom border-warning bg-warning'>Unanswered: " + game.state.questionsUnanswered + "</span>");
+                game.functions.create.gameOverModalrightAnswers(rightAnswers);
+
+                //game.functions.update.gameOverModalrightAnswers();
+                game.functions.create.gameOverModalWrongAnswers(wrongAnswers);
+                //game.functions.update.gameOverModalWrongAnswers();
+                game.functions.create.gameOverModalunansweredQuestions(unanswered);
+                //game.functions.update.gameOverModalunansweredQuestions();
                 game.functions.reset.modalButtons();
                 game.functions.create.modalRestartButton();
                 //game.functions.create.modalLeaveButton();
