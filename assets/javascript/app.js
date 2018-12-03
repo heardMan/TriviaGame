@@ -397,7 +397,7 @@ var game = {
                 var element = game.functions.create.newElement("p", "gameModalTitle", "gameModalHeader");
                 //style element
                 game.functions.create.setAttributes(element, {
-                    class: "modal-title ml-auto align-baseline"
+                    class: "modal-title mx-auto align-baseline"
                 });
             },
             gameModalCloseButton: function () {
@@ -409,6 +409,7 @@ var game = {
                     "class": "close float-right",
                     "data-dismiss": "modal",
                     "aria-label": "Close",
+                    
                 });
             },
             gameModalBody: function () {
@@ -735,7 +736,11 @@ var game = {
                 if (game.functions.timer.time === 0) {
                     game.functions.update.gameModalTitle("<h5>Know Your <img class='align-baseline img'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>TIMES UP!!!</span></h5>");
                     //<i id='modalIcon' class='fab fa-js'></i>
-                    game.functions.update.gameModalBodyText("<div class='col'>You failed to answer the question!</div>");
+                    var answerStatus = "<div class='col'>You failed to answer the question!</div>";
+                    var bodyTextTitle = "<div class='col-12 my-3'>Correct Answer:</div>";
+                var bodyText = "<div class='col-12 mb-5'>"+ game.state.questions[game.state.currentQuestion].answer + "</div>";
+                var learnMoreButton = "<div class='col-12'><button class='btn btn-info'><a class='text-white' href="+game.state.questions[game.state.currentQuestion].w3Link+" target='_blank'>Click to learn more at W3!</a></button></div>";
+                game.functions.update.gameModalBodyText(answerStatus + bodyTextTitle + bodyText + learnMoreButton);
                     game.functions.reset.modalButtons();
                     game.functions.create.modalNextQuestionButton();
                     $('#gameModal').modal({ backdrop: 'static', keyboard: false })
@@ -800,11 +805,11 @@ var game = {
                 game.functions.create.gameModalContent();
                 game.functions.create.gameModalHeader();
                 game.functions.create.gameModalTitle();
-                game.functions.create.gameModalCloseButton();
+                //game.functions.create.gameModalCloseButton();
                 game.functions.create.gameModalBody();
                 game.functions.create.gameModalBodyText();
                 game.functions.create.gameModalFooter();
-                game.functions.create.closeIcon("gameModalCloseButtonIcon", "gameModalCloseButton");
+                //game.functions.create.closeIcon("gameModalCloseButtonIcon", "gameModalCloseButton");
             },
             startMenu: function () {
                 game.functions.update.gameModalTitle("<h5>Know Your <img class='align-baseline img 'id='jsModal' src='./assets/images/jsLogo.svg'></img> : Welcome</h5>");
@@ -894,12 +899,18 @@ var game = {
                 
             },
             userSelectAnswer: function (selectID) {
+                if (game.functions.timer.time > 0){
                 var userAnswer = game.state.questions[game.state.currentQuestion].potentialAnswers[selectID];
                 var answer = game.state.questions[game.state.currentQuestion].answer;
                 if (userAnswer === answer) {
                     game.functions.logic.answerCorrect();
                 } else {
                     game.functions.logic.answerIncorrect();
+                }
+                } else {
+                    //do nothing
+                    game.functions.logic.populateQuestion();
+
                 }
             },
             answerCorrect: function () {
@@ -929,7 +940,7 @@ var game = {
                 console.log(correctAnswer);
                 game.functions.update.gameModalTitle("<h5>Know Your <img class=' align-baseline img'id='jsModal' src='./assets/images/jsLogo.svg'></img>: <span class='text-danger'>Incorrect</span></h5>");
                 //var answerStatus = "<div class='col-12'>You chose the incorrect answer</div>";
-                var bodyTextTitle = "<div class='col-12 my-3'>The Correct Answer Was:</div>";
+                var bodyTextTitle = "<div class='col-12 my-3'>Correct Answer:</div>";
                 var bodyText = "<div class='col-12 mb-5'>"+ correctAnswer + "</div>";
                 var learnMoreButton = "<div class='col-12'><button class='btn btn-info'><a class='text-white' href="+w3+" target='_blank'>Click to learn more at W3!</a></button></div>";
                 game.functions.update.gameModalBodyText(bodyTextTitle + bodyText + learnMoreButton);
